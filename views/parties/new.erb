@@ -1,0 +1,7 @@
+<h1>New Party has Arrived!</h1>
+<form action="/parties" method="post">
+	Table Number:<input type="number" name="party[table_number]" min="1" max="15">
+	Guests:<input type="number" name="party[guests]" min="1" max="12">
+	<input type="hidden" name="party[payment_status]" value="false">
+	<input type="submit" value="Add Party">
+</form>

@@ -1,0 +1,8 @@
+<h1>Edit Table <%= @party.table_number %>'s Information</h1>
+<form action="/parties/<%= @party.id %>" method="post">
+	<input type="hidden" name="_method" value="patch">
+	Table Number:<input type="number" name="party[table_number]" min="1" max="15">
+	Guests:<input type="number" name="party[guests]" min="1" max="12">
+	<input type="hidden" name="party[payment_status]" value="false">
+	<input type="submit" value="Add Party">
+</form>

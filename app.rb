@@ -20,99 +20,99 @@ end
 get '/foods' do 
 	@foods = Food.all
 	erb :"foods/index"
-
 end
 
 get '/foods/new' do
 	erb :"foods/new"
-
 end
 
 post '/foods' do 
-	food = Food.create(params[:food])
+	Food.create(params[:food])
 	redirect "/foods"
-
 end
 
 get '/foods/:id' do 
 	@food = Food.find(params[:id])
 	erb :"foods/show"
-
 end 
 
 get '/foods/:id/edit' do
 	@food = Food.find(params[:id])
 	erb :"foods/edit"
-
 end
 
 patch '/foods/:id' do 
 	food = Food.find(params[:id])
 	food.update(params[:food])
 	redirect "/foods/#{food.id}"
+	Food.destroy(params[:id])
 end
 
 delete '/foods/:id' do 
 	Food.destroy(params[:id])
 	redirect "/foods"
-
 end
 
 # Routes for parties
 
 get '/parties' do 
-
+	@parties = Party.all
 	erb :"parties/index"
 end
 
 get '/parties/new' do 
-
 	erb :"parties/new"
 end
 
 post '/parties' do 
+	Party.create(params[:party])
+	redirect "/parties"
 
 end
 
 get '/parties/:id' do 
-
+	@party = Party.find(params[:id])
+	@foods = Food.all
 	erb :"parties/show"
 end
 
 get '/parties/:id/edit' do 
-
 	erb :"parties/edit"
 end
 
 patch '/parties/:id' do 
-
+	party = Party.find(params[:id])
+	party.update(params[:party])
+	redirect "/parties/:id"
 end
 
-delete '/parties/:id' do 
-
+delete '/parties/:id' do
+	Party.destroy(params[:id]) 
+	redirect "/parties"
 end
 
 # Create Orders
-post '/orders' do 
+get '/parties/:id/new_order' do
 
-	erb :"orders/index"
+	@party = Party.find(params[:id])
+	erb :"orders/new"
+end
+
+post 'parties/:id' do  
+	redirect "/parties/#{party.id}"
 end
 
 patch '/orders/:id' do 
-
 end
 
 delete '/orders' do 
-
 end
 
 get '/parties/:id/receipt' do
-
 	erb :"parties/receipt"
 end
 
-patch '/parties/:id/checkout' do 
-
+patch '/parties/:id/checkout' do \
 end
 
 

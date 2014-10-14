@@ -1,0 +1,8 @@
+<h1>Tables Currently In Use</h1>
+<ul>
+	<% @parties.each do |party| %>
+	<li>
+	<a href="/parties/<%= party.id %>"><%= party.to_s %></a>
+	</li>
+	<% end %>
+</ul>
