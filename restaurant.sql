@@ -4,11 +4,10 @@ CREATE DATABASE restaurant;
 
 \c restaurant
 
-DROP TABLE if EXISTS food;
-
 CREATE TABLE foods(
 id serial PRIMARY KEY,
 name varchar(100),
+course varchar(100),
 price integer,
 spicy boolean
 );
