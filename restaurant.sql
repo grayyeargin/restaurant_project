@@ -2,7 +2,11 @@ DROP DATABASE IF EXISTS restaurant;
 
 CREATE DATABASE restaurant;
 
-CREATE TABLE food(
+\c restaurant
+
+DROP TABLE if EXISTS food;
+
+CREATE TABLE foods(
 id serial PRIMARY KEY,
 name varchar(100),
 price integer,
