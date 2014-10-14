@@ -1,0 +1,35 @@
+<h1>Welcome!</h1>
+<h3>Order from the following menu items</h3>
+
+<h4>Appetizers</h4>
+<ul>
+	<% @foods.each do |food| %>
+		<li>
+			<% if food.course == "appetizer" %>
+			<%= food.name %> " - $"<%= food.price %>
+			<% end %>
+		</li>
+	<% end %>
+</ul>
+
+<h4>Entree</h4>
+<ul>
+	<% @foods.each do |food| %>
+		<li>
+			<% if food.course == "entree" %>
+			<%= food.name %> " - $"<%= food.price %>
+			<% end %>
+		</li>
+	<% end %>
+</ul>
+
+<h4>Desert</h4>
+<ul>
+	<% @foods.each do |food| %>
+		<li>
+			<% if food.course == "desert" %>
+			<%= food.name %> " - $"<%= food.price %>
+			<% end %>
+		</li>
+	<% end %>
+</ul>
