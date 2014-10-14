@@ -1,35 +1,41 @@
-<h1>Welcome!</h1>
-<h3>Order from the following menu items</h3>
+<div class="container">
+	<h1>Welcome!</h1>
+	<h3>Order from the following menu items</h3>
 
-<h4>Appetizers</h4>
-<ul>
-	<% @foods.each do |food| %>
-		<li>
+<!-- Lists each appetizer -->
+	<h4>Appetizers</h4>
+	<ul>
+		<% @foods.each do |food| %>
 			<% if food.course == "appetizer" %>
-			<%= food.name %> " - $"<%= food.price %>
+			<li>
+				<a href="/foods/<%= food.id %>"><%= food.name %>  - $<%= food.price %></a>
+			</li>
 			<% end %>
-		</li>
-	<% end %>
-</ul>
+		<% end %>
+	</ul>
 
-<h4>Entree</h4>
-<ul>
-	<% @foods.each do |food| %>
-		<li>
+<!-- Lists each Entree -->
+	<h4>Entree</h4>
+	<ul>
+		<% @foods.each do |food| %>
 			<% if food.course == "entree" %>
-			<%= food.name %> " - $"<%= food.price %>
+			<li>
+			<a href="/foods/<%= food.id %>"><%= food.name %> - $<%= food.price %></a>
+			</li>
 			<% end %>
-		</li>
-	<% end %>
-</ul>
+		<% end %>
+	</ul>
 
-<h4>Desert</h4>
-<ul>
-	<% @foods.each do |food| %>
-		<li>
+<!-- Lists each Desert -->
+	<h4>Desert</h4>
+	<ul>
+		<% @foods.each do |food| %>
 			<% if food.course == "desert" %>
-			<%= food.name %> " - $"<%= food.price %>
+			<li>
+				<a href="/foods/<%= food.id %>"><%= food.name %> - $<%= food.price %></a>
+			</li>
 			<% end %>
-		</li>
-	<% end %>
-</ul>
+		<% end %>
+	</ul>
+	<a href="/foods/new">Add new item</a>
+</div>

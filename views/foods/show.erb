@@ -1,0 +1,9 @@
+<div class="container">
+	<h2>The <%= @food.name %></h2>
+	<h4>Course:&nbsp; <i><%= @food.course.capitalize %></i></h4>
+	<h4>Price:&nbsp; <i>$<%= @food.price %></i></h4>
+	<h4>Spicy:&nbsp; <i><%= if @food.spicy == true then "YES" else "NO" end%></i></h4>
+	</br>
+	<a href="/foods/<%= @food.id %>/edit">Edit Item</a>
+	<a href="/foods">Return to Menu</a>
+</div>

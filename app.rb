@@ -29,26 +29,32 @@ get '/foods/new' do
 end
 
 post '/foods' do 
+	food = Food.create(params[:food])
+	redirect "/foods"
 
 end
 
 get '/foods/:id' do 
-
+	@food = Food.find(params[:id])
 	erb :"foods/show"
 
 end 
 
 get '/foods/:id/edit' do
-
+	@food = Food.find(params[:id])
 	erb :"foods/edit"
 
 end
 
 patch '/foods/:id' do 
-
+	food = Food.find(params[:id])
+	food.update(params[:food])
+	redirect "/foods/#{food.id}"
 end
 
 delete '/foods/:id' do 
+	Food.destroy(params[:id])
+	redirect "/foods"
 
 end
 
