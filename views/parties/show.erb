@@ -1,20 +1,34 @@
-<h1>Status of Table <%= @party.table_number %></h1>
-<h3>Guests: <i><%= @party.guests %></i></h3>
+<div class="container">
+	<h1>Status of Table <%= @party.table_number %></h1>
+	<h3>Guests: <i><%= @party.guests %></i></h3>
 
-<!-- Delete Party Form -->
-<form action="/parties/<%= @party.id %>" method="post">
-		<input type="hidden" name="_method" value="delete">
-		<input type="submit" value="Remove Party">
-</form>
+	<!-- Delete Party Form -->
+	<form action="/parties/<%= @party.id %>" method="post">
+			<input type="hidden" name="_method" value="delete">
+			<input type="submit" value="Remove Party">
+	</form>
 
-<!-- Create new order form -->
-<h1>Create new order for Table <%= @party.table_number %></h1>
-<form action="/parties/<%= @party.id %>" method="post">
-	<select name="order[food]">
-		<% @foods.each do |food| %>
-		<option value="<%= food.id %>"><%= food.name %></option>
-		<% end %>
-	</select>
-	<input type="hidden" name="order[party]" value="<%= @party.id %>">
-	<input type="submit" value="Create Order">
-</form>
+	<!-- Create new orders -->
+	<h3>Create new order for Table <%= @party.table_number %></h3>
+	<form action="/parties/<%= @party.id %>" method="post">
+		<select name="order[food_id]">
+			<% @foods.each do |food| %>
+			<option value="<%= food.id %>"><%= food.name %></option>
+			<% end %>
+		</select>
+		<input type="hidden" name="order[party_id]" value="<%= @party.id %>">
+		<input type="hidden" name="order[time]" value="timestamp now">
+		<input type="submit" value="Create Order">
+	</form>
+	</br>
+	<h3>Current orders for Table <%= @party.table_number %></h3>
+		<div class="order">
+			--------------------------</br>
+			Party #<%= @party.id %></br>
+			Sitting at Table <%= @party.table_number %></br>
+			<% @party.orders.each do |order| %>
+					<a href="/orders/<%= order.id %>/edit">order<%= order.id %>: <%= order.food.name %> - $<%= order.food.price %></a></br>	
+			<% end %>
+			--------------------------
+		</div>
+</div>
