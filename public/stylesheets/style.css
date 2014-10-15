@@ -1,0 +1,45 @@
+body {
+	background-image: url('http://imagesci.com/img/2013/12/blue-abstract-background-3439-hd-wallpapers.jpg');
+}
+
+ul {
+	padding-left: 0;
+}
+
+.container {
+	margin: 0 auto;
+	padding: 0 10px 200px 10px;
+	width: 80%;
+	max-width: 960px;
+	min-width: 300px;
+	background-color: rgba(255, 255, 255, .7);
+	-webkit-box-shadow: 0px 0px 53px 22px rgba(0,0,0,0.75);
+	-moz-box-shadow: 0px 0px 53px 22px rgba(0,0,0,0.75);
+	box-shadow: 0px 0px 53px 22px rgba(0,0,0,0.75);
+}
+
+.text_align {
+	text-align: center;
+}
+
+.align_center {
+	margin: 0 auto;
+}
+
+.receipt {
+	background-image: url('http://www.bittbox.com/wp-content/uploads/2011/02/wrinkled_paper_1s.jpg');
+	width: 250px;
+	margin: 0 auto;
+	padding: 60px 10px;
+	font-family: 'Cutive Mono', "courier new";
+}
+
+.errors {
+	text-align: center;
+	color: red;
+}
+
+.errors li {
+	display: inline-block;
+	margin-left: 0;
+}

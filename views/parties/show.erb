@@ -2,13 +2,13 @@
 	<h1>Status of Table <%= @party.table_number %></h1>
 	<h3>Guests: <i><%= @party.guests %></i></h3>
 
-	<!-- Delete Party Form -->
+<!-- 	Delete Party Form -->
 	<form action="/parties/<%= @party.id %>" method="post">
 			<input type="hidden" name="_method" value="delete">
 			<input type="submit" value="Remove Party">
 	</form>
 
-	<!-- Create new orders -->
+<!-- 	Create new orders -->
 	<h3>Create new order for Table <%= @party.table_number %></h3>
 	<form action="/parties/<%= @party.id %>" method="post">
 		<select name="order[food_id]">
@@ -21,14 +21,32 @@
 		<input type="submit" value="Create Order">
 	</form>
 	</br>
-	<h3>Current orders for Table <%= @party.table_number %></h3>
-		<div class="order">
-			--------------------------</br>
+
+<!-- 	Full receipt for Party -->
+	<h3 class="text_align">Current orders for Table <%= @party.table_number %></h3>
+		<div class="receipt">
+			Thanks for eating at...</br>
+			...Bread Zeppelin!</br>
+			--------------------------------</br>
 			Party #<%= @party.id %></br>
 			Sitting at Table <%= @party.table_number %></br>
 			<% @party.orders.each do |order| %>
 					<a href="/orders/<%= order.id %>/edit">order<%= order.id %>: <%= order.food.name %> - $<%= order.food.price %></a></br>	
 			<% end %>
-			--------------------------
+			--------------------------------</br>
+			Total: $<%= @party.total %>
+			<%= if @party.payment_status == true then "PAID" end%></br>
+			Tip: 15% = $<%= @party.tip(0.15) %></br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;20% = $<%= @party.tip(0.20) %></br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;25% = $<%= @party.tip(0.25) %>
 		</div>
+		<a href="/parties/<%= @party.id %>/receipt">Print Receipt</a>
+
+<!-- Form to pay for order -->
+	<form action="/parties/<%= @party.id %>" method="post">
+		<input type="hidden" name="_method" value="patch">
+		<input type="hidden" name="party[payment_status]" value="true">
+		<input type="submit" value="Pay for Meal">
+	</form>
+
 </div>

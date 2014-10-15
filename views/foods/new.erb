@@ -12,5 +12,15 @@
 		<input type="radio" name="food[spicy]" value="false">No</br>
 		<input type="submit" value="Add to Menu">
 	</form>
-	
+	<!-- IF VALIDATIONS CAUSE ERROR -->
+	<% if @errors %>
+	<div class="errors">
+	<h1>NAH UH! YOU HAVE <%= @errors.count %> <%= @errors.count == 1 ? "ERROR" : "ERRORS" %>.</h1>
+	  <ul>
+	    <% @errors.each do |error|  %>
+	      <li><h3><%= error %></h3></li>
+	    <% end %>
+	  </ul>
+	</div>
+	<% end %>
 </div>

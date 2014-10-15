@@ -27,8 +27,15 @@ get '/foods/new' do
 end
 
 post '/foods' do 
-	Food.create(params[:food])
-	redirect "/foods"
+	food = params[:food]
+	food[:name] = food[:name].capitalize
+	food = Food.create(params[:food])
+	if food.valid?
+		redirect "/foods"
+	else
+		@errors = food.errors.full_messages
+		erb :"foods/new"
+	end
 end
 
 get '/foods/:id' do 
@@ -83,7 +90,7 @@ end
 patch '/parties/:id' do 
 	party = Party.find(params[:id])
 	party.update(params[:party])
-	redirect "/parties/:id"
+	redirect "/parties/#{party.id}"
 end
 
 delete '/parties/:id' do
@@ -121,6 +128,7 @@ delete '/orders/:id' do
 end
 
 get '/parties/:id/receipt' do
+	@party = Party.find(params[:id])
 	erb :"parties/receipt"
 end
 
