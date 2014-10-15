@@ -84,6 +84,7 @@ get '/parties/:id' do
 end
 
 get '/parties/:id/edit' do 
+	@party = Party.find(params[:id])
 	erb :"parties/edit"
 end
 

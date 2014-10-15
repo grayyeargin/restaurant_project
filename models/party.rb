@@ -15,7 +15,12 @@ class Party < ActiveRecord::Base
 	def tip(percent)
 		prices = self.foods.map {|food| food.price}
 		total_amount = prices.inject(:+)
-		tip_amount = total_amount * percent.to_f
-		tip_amount.round(2)
+		if self.orders.count > 0
+			tip_amount = (total_amount)*(percent.to_f)
+			tip_amount.round(2)
+		else
+			""
+		end
 	end
+
 end

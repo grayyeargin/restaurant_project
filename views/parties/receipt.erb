@@ -1,0 +1,12 @@
+<div class="receipt">
+	Thanks for eating at...</br>
+	...Bread Zeppelin!</br>
+	--------------------------------</br>
+	Party #<%= @party.id %></br>
+	Sitting at Table <%= @party.table_number %></br>
+	<% @party.orders.each do |order| %>
+			<a href="/orders/<%= order.id %>/edit">order<%= order.id %>: <%= order.food.name %> - $<%= order.food.price %></a></br>	
+	<% end %>
+	--------------------------------</br>
+	Total: $<%= @party.total %>
+</div>

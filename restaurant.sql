@@ -14,6 +14,7 @@ spicy boolean
 
 CREATE TABLE parties(
 id serial PRIMARY KEY,
+last_name varchar(55),
 table_number integer,
 guests integer,
 payment_status boolean

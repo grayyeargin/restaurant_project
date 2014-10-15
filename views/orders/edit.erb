@@ -1,20 +1,33 @@
-<h3>Edit order #<%= @order.id %> for Party <%= @order.party.id %></h3>
+<div class="container">
+	<h3 class="first_heading">Edit order #<%= @order.id %> for Party <%= @order.party.id %></h3>
 
-<!-- Form for editing order -->
-<form action="/orders/<%= @order.id %>" method="post">
-	<input type="hidden" name="_method" value="patch">
-	<select name="order[food_id]">
-		<% @foods.each do |food| %>
-		<option value="<%= food.id %>"><%= food.name %></option>
-		<% end %>
-	</select>
-	<input type="hidden" name="order[party_id]" value="<%= @order.party.id %>">
-	<input type="submit" value="Edit Order">
-</form>
+	<!-- Form for editing order -->
+	<form class="inline_block_display" action="/orders/<%= @order.id %>" method="post">
+		<input type="hidden" name="_method" value="patch">
+		<select name="order[food_id]">
+			<% @foods.each do |food| %>
+			<option value="<%= food.id %>"><%= food.name %></option>
+			<% end %>
+		</select>
+		<input type="hidden" name="order[party_id]" value="<%= @order.party.id %>">
+		<input type="submit" value="Edit Order">
+	</form>
 
-<!-- Form for deleting order -->
-<form action="/orders/<%= @order.id %>" method="post">
-	<input type="hidden" name="_method" value="delete">
-	<input type="submit" value="Delete">
-</form>
+	<!-- Form for deleting order -->
+	<form class="inline_block_display" action="/orders/<%= @order.id %>" method="post">
+		<input type="hidden" name="_method" value="delete">
+		<input type="submit" value="Delete">
+	</form>
+
+<!-- Make order free of charge -->
+<!-- <form action="/order/:id" method="post">
+<input type="hidden" name="_method" value="patch">
+<input type="hidden" name="_method" value="0">
+
+<input type="submit" value="Make it FREE">
+
+	
+</form> -->
+
+</div>
 

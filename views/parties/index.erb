@@ -1,8 +1,19 @@
-<h1>Tables Currently In Use</h1>
-<ul>
-	<% @parties.each do |party| %>
-	<li>
-	<a href="/parties/<%= party.id %>"><%= party.to_s %></a>
-	</li>
-	<% end %>
-</ul>
+<div class="container">
+	<h1 class="first_heading">Tables Currently In Use</h1>
+	<ul>
+		<% @parties.each do |party| %>
+		<li>
+		<a href="/parties/<%= party.id %>"><%= party.to_s %></a>
+		</li>
+		<% end %>
+	</ul>
+
+	<div class="table">
+			<h3>1</h3>
+			<% @parties.each do |party| %>
+			<%= if party.table_number == 1 then party.last_name else "OPEN" end%>
+			<% end %>
+
+	</div>
+	<a href="/parties/new">Create New Reservation</a>
+</div>

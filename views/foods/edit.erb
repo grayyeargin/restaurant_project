@@ -1,5 +1,5 @@
 <div class="container">
-	<h2>Edit the <%= @food.name %> details</h2>
+	<h2 class="first_heading">Edit the <%= @food.name %> details</h2>
 	<form action="/foods/<%= @food.id %>" method="post">
 		<input type="hidden" name="_method" value="patch">
 		Food Name:<input type="text" name="food[name]">

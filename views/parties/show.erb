@@ -1,11 +1,18 @@
 <div class="container">
-	<h1>Status of Table <%= @party.table_number %></h1>
-	<h3>Guests: <i><%= @party.guests %></i></h3>
+	<h1 class="first_heading">Status of Table <%= @party.table_number %></h1>
+	<h3 class="inline_block_display" >Guests: <i><%= @party.guests %></i></h3>
 
 <!-- 	Delete Party Form -->
-	<form action="/parties/<%= @party.id %>" method="post">
+	<form class="inline_block_display" action="/parties/<%= @party.id %>" method="post">
 			<input type="hidden" name="_method" value="delete">
 			<input type="submit" value="Remove Party">
+	</form>
+
+	<!-- Form to pay for order -->
+	<form class="inline_block_display" action="/parties/<%= @party.id %>" method="post">
+		<input type="hidden" name="_method" value="patch">
+		<input type="hidden" name="party[payment_status]" value="true">
+		<input type="submit" value="Pay for Meal">
 	</form>
 
 <!-- 	Create new orders -->
@@ -17,7 +24,7 @@
 			<% end %>
 		</select>
 		<input type="hidden" name="order[party_id]" value="<%= @party.id %>">
-		<input type="hidden" name="order[time]" value="timestamp now">
+		<input type="hidden" name="order[time]" value="<%= Time.now %>">
 		<input type="submit" value="Create Order">
 	</form>
 	</br>
@@ -28,7 +35,7 @@
 			Thanks for eating at...</br>
 			...Bread Zeppelin!</br>
 			--------------------------------</br>
-			Party #<%= @party.id %></br>
+			<%= @party.last_name %> Party</br>
 			Sitting at Table <%= @party.table_number %></br>
 			<% @party.orders.each do |order| %>
 					<a href="/orders/<%= order.id %>/edit">order<%= order.id %>: <%= order.food.name %> - $<%= order.food.price %></a></br>	
