@@ -68,13 +68,13 @@ get '/parties' do
 end
 
 get '/parties/new' do 
+	@table_number = params[:table_number]
 	erb :"parties/new"
 end
 
 post '/parties' do 
 	Party.create(params[:party])
 	redirect "/parties"
-
 end
 
 get '/parties/:id' do 

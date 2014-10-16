@@ -1,7 +1,7 @@
 <div class="container">
 	<h1 class="first_heading">New Party has Arrived!</h1>
 	<form action="/parties" method="post">
-		Table Number:<input type="number" name="party[table_number]" min="1" max="10">
+		Table Number:<input type="number" name="party[table_number]" min="1" max="10" value="<%= @table_number %>">
 		Guests:<input type="number" name="party[guests]" min="1" max="12">
 		<input type="text" name="party[last_name]" placeholder="Last name of party:">
 		<input type="hidden" name="party[payment_status]" value="false">
