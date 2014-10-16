@@ -1,4 +1,5 @@
 class Party < ActiveRecord::Base
+	validates :table_number, uniqueness: true
 	has_many(:orders)
 	has_many(:foods, :through => :orders)
 

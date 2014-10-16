@@ -24,7 +24,7 @@
 			<% end %>
 		</select>
 		<input type="hidden" name="order[party_id]" value="<%= @party.id %>">
-		<input type="hidden" name="order[time]" value="<%= Time.now %>">
+		<input type="hidden" name="order[time]" value="<%= DateTime.now %>">
 		<input type="submit" value="Create Order">
 	</form>
 	</br>

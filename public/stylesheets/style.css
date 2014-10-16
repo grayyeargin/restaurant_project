@@ -2,6 +2,15 @@ body {
 	background-image: url('http://imagesci.com/img/2013/12/blue-abstract-background-3439-hd-wallpapers.jpg');
 }
 
+a {
+	color: #FF8800;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #00D5FF;
+}
+
 .navigation {
 	width: 100%;
 	position: relative;
@@ -124,11 +133,20 @@ input[type=submit]:hover {
 	margin-left: 0;
 }
 
-.table {
-	height: 200px;
-	width: 200px;
-	border-radius: 100px;
-	background-color: lightblue;
-	text-align: center;
-	vertical-align: middle;
+.square {
+	height: 150px;
+	width: 150px;
+	background-color: #3B3B3B;
+	display: inline-block;
+	margin: 10px;
+	color: white;
+	border-radius: 5px;
+}
+
+.vertical_middle {
+	position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  text-align: center;
+  font-size: 12px;
 }

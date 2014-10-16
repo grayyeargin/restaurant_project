@@ -1,19 +1,136 @@
 <div class="container">
-	<h1 class="first_heading">Tables Currently In Use</h1>
-	<ul>
-		<% @parties.each do |party| %>
-		<li>
-		<a href="/parties/<%= party.id %>"><%= party.to_s %></a>
-		</li>
-		<% end %>
-	</ul>
+	<h1 class="first_heading text_align menu_heading">Restaurant Availability</h1>
 
-	<div class="table">
-			<h3>1</h3>
-			<% @parties.each do |party| %>
-			<%= if party.table_number == 1 then party.last_name else "OPEN" end%>
-			<% end %>
-
-	</div>
-	<a href="/parties/new">Create New Reservation</a>
+<!-- RESTAURANT LAYOUT -->
+	<div class="layout">
+		<!-- table 1 -->
+		<div class="square">
+			<div class="vertical_middle">
+				TABLE 1</br>
+				<% @parties.each do |party| %>
+					<% if party.table_number == 1 %>
+						<a href="/parties/<%= party.id %>"><%= "The "+party.last_name+" Party" %></a>
+					<% else %>
+						<a href="/parties/new"><%= "OPEN" %></a>
+					<% end %>
+				<% end %>
+			</div>
+		</div>
+		<!-- table 2 -->
+		<div class="square">
+			<div class="vertical_middle">
+				TABLE 2</br>
+				<% @parties.each do |party| %>
+					<% if party.table_number == 2 %>
+						<a href="/parties/<%= party.id %>"><%= "The "+party.last_name+" Party" %></a>
+					<% else %>
+						<a href="/parties/new"><%= "OPEN" %></a>
+					<% end %>
+				<% end %>
+			</div>
+		</div>
+		<!-- table 3 -->
+		<div class="square">
+			<div class="vertical_middle">
+				TABLE 3</br>
+				<% @parties.each do |party| %>
+					<% if party.table_number == 3 %>
+						<a href="/parties/<%= party.id %>"><%= "The "+party.last_name+" Party" %></a>
+					<% else %>
+						<a href="/parties/new"><%= "OPEN" %></a>
+					<% end %>
+				<% end %>
+			</div>
+		</div>
+		<!-- table 4 -->
+		<div class="square">
+			<div class="vertical_middle">
+				TABLE 4</br>
+				<% @parties.each do |party| %>
+					<% if party.table_number == 4 %>
+						<a href="/parties/<%= party.id %>"><%= "The "+party.last_name+" Party" %></a>
+					<% else %>
+						<a href="/parties/new"><%= "OPEN" %></a>
+					<% end %>
+				<% end %>
+			</div>
+		</div>
+		<!-- table 5 -->
+		<div class="square">
+			<div class="vertical_middle">
+				TABLE 5</br>
+				<% @parties.each do |party| %>
+					<% if party.table_number == 5 %>
+						<a href="/parties/<%= party.id %>"><%= "The "+party.last_name+" Party" %></a>
+					<% else %>
+						<a href="/parties/new"><%= "OPEN" %></a>
+					<% end %>
+				<% end %>
+			</div>
+		</div>
+		<!-- table 6 -->
+		<div class="square">
+			<div class="vertical_middle">
+				TABLE 6</br>
+				<% @parties.each do |party| %>
+					<% if party.table_number == 6 %>
+						<a href="/parties/<%= party.id %>"><%= "The "+party.last_name+" Party" %></a>
+					<% else %>
+						<a href="/parties/new"><%= "OPEN" %></a>
+					<% end %>
+				<% end %>
+			</div>
+		</div>
+		<!-- table 7 -->
+		<div class="square">
+			<div class="vertical_middle">
+				TABLE 7</br>
+				<% @parties.each do |party| %>
+					<% if party.table_number == 7 %>
+						<a href="/parties/<%= party.id %>"><%= "The "+party.last_name+" Party" %></a>
+					<% else %>
+						<a href="/parties/new"><%= "OPEN" %></a>
+					<% end %>
+				<% end %>
+			</div>
+		</div>
+		<!-- table 8 -->
+		<div class="square">
+			<div class="vertical_middle">
+				TABLE 8</br>
+				<% @parties.each do |party| %>
+					<% if party.table_number == 8 %>
+						<a href="/parties/<%= party.id %>"><%= "The "+party.last_name+" Party" %></a>
+					<% else %>
+						<a href="/parties/new"><%= "OPEN" %></a>
+					<% end %>
+				<% end %>
+			</div>
+		</div>
+		<!-- table 9 -->
+		<div class="square">
+			<div class="vertical_middle">
+				TABLE 9</br>
+				<% @parties.each do |party| %>
+					<% if party.table_number == 9 %>
+						<a href="/parties/<%= party.id %>"><%= "The "+party.last_name+" Party" %></a>
+					<% else %>
+						<a href="/parties/new"><%= "OPEN" %></a>
+					<% end %>
+				<% end %>
+			</div>
+		</div>
+		<!-- table 10 -->
+		<div class="square">
+			<div class="vertical_middle">
+				TABLE 10</br>
+				<% @parties.each do |party| %>
+					<% if party.table_number == 10 %>
+						<a href="/parties/<%= party.id %>"><%= "The "+party.last_name+" Party" %></a>
+					<% else %>
+						<a href="/parties/new"><%= "OPEN" %></a>
+					<% end %>
+				<% end %>
+			</div>
+		</div>
 </div>
