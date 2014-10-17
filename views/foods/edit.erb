@@ -1,24 +1,19 @@
 <div class="container">
-	<h2 class="first_heading">Edit the <%= @food.name %> details</h2>
+	<h2 class="first_heading">Edit <span class="menu_heading" style="font-size: 24px;">the <%= @food.name %></span> details</h2>
 	<form action="/foods/<%= @food.id %>" method="post">
 		<input type="hidden" name="_method" value="patch">
-		Food Name:<input type="text" name="food[name]">
-		<p>What course is the item?</p>
-		<input type="radio" name="food[course]" value="appetizer">Appetizer</br>
-		<input type="radio" name="food[course]" value="entree">Entree</br>
-		<input type="radio" name="food[course]" value="desert">Desert</br>
+		Food Name:<input type="text" name="food[name]"></br>
+		What course is the item?
+		<select name="food[course]">
+			<option value="appetizer">Appetizer</option>
+			<option value="appetizer">Entree</option>
+			<option value="appetizer">Desert</option>
+		</select></br>
 		Item Price:<input type="number" name="food[price]" min="1" max="50">
 		<p>Spicy?</p>
 		<input type="radio" name="food[spicy]" value="true">Yes</br>
 		<input type="radio" name="food[spicy]" value="false">No</br>
 		<input type="submit" value="Edit Item">
 	</form>
-	</br>
-	Or
-	<form action="/foods/<%= @food.id %>" method="post">
-		<input type="hidden" name="_method" value="delete">
-		<input type="submit" value="Delete Item">
-	</form>
-
-	
 </div>
+

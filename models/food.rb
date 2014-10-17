@@ -11,4 +11,10 @@ class Food < ActiveRecord::Base
 		end	
 	end
 
+	def food_capitalize
+		name_array = self.name.split(" ")
+		capitals = name_array.map {|word| word.capitalize}
+		capitals.join(",").gsub(",", " ")
+	end
+
 end

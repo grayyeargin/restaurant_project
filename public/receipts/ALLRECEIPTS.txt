@@ -1,0 +1,29 @@
+-----------------------------
+    Thanks for eating at...  
+...Nick Cage's Place of Food!
+*****************************
+Flaxon Party
+Sitting at Table 1
+order 1: Popcorn sandwhich - $6
+order 2: Rocks - $4
+*****************************
+Total: 10
+Tip: 15% = 1.5
+     20% = 2.0
+     25% = 2.5
+-----------------------------
+-----------------------------
+    Thanks for eating at...  
+...Nick Cage's Place of Food!
+*****************************
+Flaxon Party
+Sitting at Table 1
+Checkout:2014-10-17 18:12:07 UTC
+order 1: Popcorn sandwhich - $6
+order 2: Rocks - $4
+*****************************
+Total: 10
+Tip: 15% = 1.5
+     20% = 2.0
+     25% = 2.5
+-----------------------------

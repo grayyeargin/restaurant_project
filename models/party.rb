@@ -26,13 +26,14 @@ class Party < ActiveRecord::Base
 
 	def print_receipt
 
-		file = File.open("public/"+self.id.to_s+"_"+self.last_name+"_party_receipt.txt", "w")
+		file = File.open("public/receipts/"+self.id.to_s+"_"+self.last_name+"_party_receipt.txt", "w")
 		file << "-----------------------------\n"
 		file << "    Thanks for eating at...  \n"
 		file << "...Nick Cage's Place of Food!\n"
 		file << "*****************************\n"
 		file << self.last_name+" Party\n"
 		file << "Sitting at Table "+self.table_number.to_s+"\n"
+		file << "Checkout:"+self.checkout_time.to_s+"\n"
 		self.orders.each do |order|
 			file << order.to_s+"\n"
 		end
@@ -44,9 +45,9 @@ class Party < ActiveRecord::Base
 		file << "-----------------------------\n"
 		file.close
 
-		all_receipts =  File.open("public/ALLRECEIPTS.txt", "a")
+		all_receipts =  File.open("public/receipts/ALLRECEIPTS.txt", "a")
 		all_receipts << ""
-		all_receipts << File.read("public/"+self.id.to_s+"_"+self.last_name+"_party_receipt.txt")
+		all_receipts << File.read("public/receipts/"+self.id.to_s+"_"+self.last_name+"_party_receipt.txt")
 		all_receipts << ""
 		all_receipts.close
 

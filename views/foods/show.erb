@@ -1,9 +1,15 @@
 <div class="container">
-	<h2 class="first_heading">The <%= @food.name %></h2>
+	<h2 class="first_heading menu_heading">The <%= @food.food_capitalize %></h2>
 	<h4>Course:&nbsp; <i><%= @food.course.capitalize %></i></h4>
 	<h4>Price:&nbsp; <i>$<%= @food.price %></i></h4>
 	<h4>Spicy:&nbsp; <i><%= if @food.spicy == true then "YES" else "NO" end%></i></h4>
 	</br>
-	<a href="/foods/<%= @food.id %>/edit">Edit Item</a>
-	<a href="/foods">Return to Menu</a>
+	<div class="button_menu">
+		<a class="button" href="/foods/<%= @food.id %>/edit">Edit Item</a>
+		<a class="button" href="/foods">Return to Menu</a>
+		<form id="inline_block_form" action="/foods/<%= @food.id %>" method="post">
+			<input type="hidden" name="_method" value="delete">
+			<input type="submit" value="Delete Item">
+		</form>
+	</div>
 </div>

@@ -12,6 +12,7 @@
 	<form class="inline_block_display" action="/parties/<%= @party.id %>" method="post">
 		<input type="hidden" name="_method" value="patch">
 		<input type="hidden" name="party[payment_status]" value="true">
+		<input type="hidden" name="party[checkout_time]" value="<%= DateTime.now %>">
 		<input type="submit" value="Pay for Meal">
 	</form>
 
@@ -24,7 +25,6 @@
 			<% end %>
 		</select>
 		<input type="hidden" name="order[party_id]" value="<%= @party.id %>">
-		<input type="hidden" name="order[time]" value="<%= DateTime.now %>">
 		<input type="submit" value="Create Order">
 	</form>
 	</br>
@@ -46,9 +46,9 @@
 
 	<h3 class="text_align">Current orders for Table <%= @party.table_number %></h3>
 		<div class="receipt">
-			Thanks for eating at...</br>
-			...Bread Zeppelin!</br>
-			--------------------------------</br>
+			...Thanks for eating at...</br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Spicoli's!</br>
+			--------------------------</br>
 			<%= @party.last_name %> Party</br>
 			Sitting at Table <%= @party.table_number %></br>
 			<% @party.orders.each do |order| %>
@@ -56,13 +56,15 @@
 					<a href="/orders/<%= order.id %>/edit"><%= order.to_s %></a></br>	
 					
 			<% end %>
-			--------------------------------</br>
+			--------------------------</br>
 			Total: $<%= @party.total %>
 			<%= if @party.payment_status == true then "PAID" end%></br>
 			Tip: 15% = $<%= @party.tip(0.15) %></br>
 			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;20% = $<%= @party.tip(0.20) %></br>
 			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;25% = $<%= @party.tip(0.25) %>
 		</div>
-		<a href="/parties/<%= @party.id %>/receipt">Print Receipt</a>
+		<div class="text_align">
+			<a href="public/receipts/<%= @party.id %>_<%= @party.last_name %>_party_receipt.txt" download>Download Receipt</a>
+		</div>
 
 </div>
