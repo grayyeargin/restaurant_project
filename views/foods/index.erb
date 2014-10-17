@@ -10,8 +10,8 @@
 		<ul>
 			<% @foods.each do |food| %>
 				<% if food.course == "appetizer" %>
-				<li>
-					<a href="/foods/<%= food.id %>"><%= food.name %>  - $<%= food.price %></a>
+				<li class="food_list">
+					<a href="/foods/<%= food.id %>"><%= food.name %>  - $<%= food.price %></a><img src="http://ih2.redbubble.net/image.14928045.9401/sticker,375x360.u6.png" class="<%= food.is_spicy %>" >
 				</li>
 				<% end %>
 			<% end %>
@@ -22,8 +22,8 @@
 		<ul>
 			<% @foods.each do |food| %>
 				<% if food.course == "entree" %>
-				<li>
-				<a href="/foods/<%= food.id %>"><%= food.name %> - $<%= food.price %></a>
+				<li class="food_list">
+				<a href="/foods/<%= food.id %>"><%= food.name %> - $<%= food.price %></a><img src="http://ih2.redbubble.net/image.14928045.9401/sticker,375x360.u6.png" class="<%= food.is_spicy %>" >
 				</li>
 				<% end %>
 			<% end %>
@@ -34,12 +34,17 @@
 		<ul>
 			<% @foods.each do |food| %>
 				<% if food.course == "desert" %>
-				<li>
-					<a href="/foods/<%= food.id %>"><%= food.name %> - $<%= food.price %></a>
+				<li class="food_list">
+					<a href="/foods/<%= food.id %>"><%= food.name %> - $<%= food.price %></a><img src="http://ih2.redbubble.net/image.14928045.9401/sticker,375x360.u6.png" class="<%= food.is_spicy %>" >
 				</li>
 				<% end %>
 			<% end %>
 		</ul>
 	</div>
-		<a href="/foods/new">Add new item</a>
+		<div class="text_align">
+			<img src="http://ih2.redbubble.net/image.14928045.9401/sticker,375x360.u6.png" class="spicyness" > = Burn Yo Mouth Spicy!
+		</div>
+		<div class="text_align first_heading">
+			<a class="button" href="/foods/new">Add new item</a>
+		</div>
 </div>

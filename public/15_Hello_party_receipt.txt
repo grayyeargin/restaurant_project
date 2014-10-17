@@ -1,0 +1,14 @@
+-----------------------------
+    Thanks for eating at...  
+...Nick Cage's Place of Food!
+*****************************
+Hello Party
+Sitting at Table 3
+order 30: Stanley goodspead special - $16
+order 31: Popcorn sandwhich - $6
+*****************************
+Total: 22
+Tip: 15% = 3.3
+     20% = 4.4
+     25% = 5.5
+-----------------------------

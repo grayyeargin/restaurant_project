@@ -1,0 +1,14 @@
+#<File:0x007fc5fc442590>#<File:0x007fd5361e3f58>#<File:0x007ffcdf966958>#<File:0x007ff6ed8e2538>#<File:0x007fac8af6c370>#<File:0x007fe78a76cb30>#<File:0x007fd01f03e548>#<File:0x007f84f6868be8>#<File:0x007ff1e884d668>#<File:0x007f8d8e03d770>#<File:0x007ff0e9a6d1f0>#<File:0x007fb0df1d24e0>#<File:0x007f8141f54398>#<File:0x007fb61415a730>#<File:0x007f8a0f0cd2a8>#<File:0x007feb5be56430>#<File:0x007f86ac16b928>#<File:0x007f86ac2e4a48>#<File:0x007fda5503acc8>#<File:0x007ff27aaffb08>#<File:0x007ffed43b7128>-----------------------------
+    Thanks for eating at...  
+...Nick Cage's Place of Food!
+*****************************
+Hello Party
+Sitting at Table 3
+order 30: Stanley goodspead special - $16
+order 31: Popcorn sandwhich - $6
+*****************************
+Total: 22
+Tip: 15% = 3.3
+     20% = 4.4
+     25% = 5.5
+-----------------------------

@@ -24,5 +24,6 @@ CREATE TABLE orders(
 	id serial PRIMARY KEY,
 	food_id integer,
 	party_id integer,
+	cook_status boolean,
 	time TIMESTAMP
 );

@@ -73,7 +73,7 @@ get '/parties/new' do
 end
 
 post '/parties' do 
-	Party.create(params[:party])
+	Party.create(params[:party]) 
 	redirect "/parties"
 end
 
@@ -91,7 +91,12 @@ end
 patch '/parties/:id' do 
 	party = Party.find(params[:id])
 	party.update(params[:party])
-	redirect "/parties/#{party.id}"
+	if party.payment_status == true
+		party.print_receipt
+		redirect "/parties/#{party.id}"
+	else
+		redirect "/parties/#{party.id}"
+	end
 end
 
 delete '/parties/:id' do
@@ -102,8 +107,15 @@ end
 # Create Orders
 
 post '/parties/:id' do  
-	Order.create(params[:order])
-	redirect "/parties/#{params[:id]}"
+	@party = Party.find(params[:id])
+	@foods = Food.all
+	order = Order.create(params[:order])
+	if order.valid?
+		redirect "/parties/#{params[:id]}"
+	else
+		@errors = order.errors.full_messages
+		erb :"parties/show"
+	end
 end
 
 
@@ -133,7 +145,7 @@ get '/parties/:id/receipt' do
 	erb :"parties/receipt"
 end
 
-patch '/parties/:id/checkout' do \
+patch '/parties/:id/checkout' do 
 end
 
 

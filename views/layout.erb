@@ -2,21 +2,24 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
 	<title>Restaurant Coordinator 3000</title>
 	<link rel="stylesheet" href="/stylesheets/style.css">
 	<link rel="stylesheet" href="/stylesheets/normalize.css">
+	<link rel="stylesheet" media="(max-width: 700px)" href="/stylesheets/phone.css">
 	<link href='http://fonts.googleapis.com/css?family=Cutive+Mono' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Ribeye+Marrow' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Bad+Script' rel='stylesheet' type='text/css'>
 </head>
 <body>
-	<div class="navigation">
-		<ul>
-			<a href="/foods"><li>MENU</li></a>
-			<li id="nav_title">Steven Seagal's</br>House of Waffles</li>
-			<a href="/parties"><li>TABLES</li></a>
-		</ul>	
-	</div>
+		<div class="navigation group">
+			<div id="nav_title">Nick Cage's</br>Place of Food</div>
+			<ul>
+				<a href="/foods"><li class="left">MENU</li></a>
+				<a href="/parties"><li class="right">TABLES</li></a>
+			</ul>	
+		</div>
+
 	<%= yield %>
 </body>
 </html>

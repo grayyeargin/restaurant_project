@@ -1,0 +1,74 @@
+#nav_title {
+	font-size: 25px;
+	position: relative;
+	margin: 0;
+	left: 0;
+}
+
+.navigation li {
+	display: inline-block;
+	padding: 20px;
+	font-size: 20px;
+}
+
+.left {
+	margin-right: 0px;
+}
+
+.right {
+	margin-left: 0px;
+}
+
+.phone_first_heading {
+	padding-top: 0;
+}
+
+.phone_container {
+	background-color: transparent;
+	box-shadow: none;
+	margin: 0;
+	padding: 20px 0;
+	width: 100%;
+	max-width: none;
+	min-width: none;
+}
+
+.container > * {
+	margin-left: 0;
+}
+
+
+.square {
+	height: 75px;
+	width: 90%;
+	background-color: #3B3B3B;
+	display: block;
+	margin: 7px 5%;
+	color: white;
+	border-radius: 5px;
+}
+
+.menu {
+	text-align: center;
+}
+
+.menu li {
+	margin-left: 0;
+}
+
+.menu_heading {
+	font-size: 1.2em;
+	margin-top: 5px;
+}
+
+h3.menu_heading {
+	margin-bottom: 25px;
+}
+
+.show_party_container {
+	text-align: center;
+}
+
+.receipt {
+	margin: 0 auto;
+}

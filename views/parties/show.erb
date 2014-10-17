@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container show_party_container">
 	<h1 class="first_heading">Status of Table <%= @party.table_number %></h1>
 	<h3 class="inline_block_display" >Guests: <i><%= @party.guests %></i></h3>
 
@@ -8,7 +8,7 @@
 			<input type="submit" value="Remove Party">
 	</form>
 
-	<!-- Form to pay for order -->
+	<!-- Pay for order -->
 	<form class="inline_block_display" action="/parties/<%= @party.id %>" method="post">
 		<input type="hidden" name="_method" value="patch">
 		<input type="hidden" name="party[payment_status]" value="true">
@@ -29,7 +29,21 @@
 	</form>
 	</br>
 
+<!-- Display Errors if ORDER when PARTY already PAID -->
+
+	<% if @errors %>
+		<div class="errors">
+		<h1>NAH UH! YOU HAVE <%= @errors.count %> <%= @errors.count == 1 ? "ERROR" : "ERRORS" %>.</h1>
+		  <ul>
+		    <% @errors.each do |error|  %>
+		      <li><h3><%= error %></h3></li>
+		    <% end %>
+		  </ul>
+		</div>
+	<% end %>
+
 <!-- 	Full receipt for Party -->
+
 	<h3 class="text_align">Current orders for Table <%= @party.table_number %></h3>
 		<div class="receipt">
 			Thanks for eating at...</br>
@@ -38,7 +52,9 @@
 			<%= @party.last_name %> Party</br>
 			Sitting at Table <%= @party.table_number %></br>
 			<% @party.orders.each do |order| %>
-					<a href="/orders/<%= order.id %>/edit">order<%= order.id %>: <%= order.food.name %> - $<%= order.food.price %></a></br>	
+					
+					<a href="/orders/<%= order.id %>/edit"><%= order.to_s %></a></br>	
+					
 			<% end %>
 			--------------------------------</br>
 			Total: $<%= @party.total %>
@@ -48,12 +64,5 @@
 			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;25% = $<%= @party.tip(0.25) %>
 		</div>
 		<a href="/parties/<%= @party.id %>/receipt">Print Receipt</a>
-
-<!-- Form to pay for order -->
-	<form action="/parties/<%= @party.id %>" method="post">
-		<input type="hidden" name="_method" value="patch">
-		<input type="hidden" name="party[payment_status]" value="true">
-		<input type="submit" value="Pay for Meal">
-	</form>
 
 </div>
