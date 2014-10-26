@@ -6,6 +6,7 @@
 	<title>Restaurant Coordinator 3000</title>
 	<link rel="stylesheet" href="/stylesheets/style.css">
 	<link rel="stylesheet" href="/stylesheets/normalize.css">
+	<script src="/javascripts/scripts.js"></script>
 	<link rel="stylesheet" media="(max-width: 700px)" href="/stylesheets/phone.css">
 	<link href='http://fonts.googleapis.com/css?family=Cutive+Mono' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Sacramento' rel='stylesheet' type='text/css'>
@@ -16,9 +17,18 @@
 		<div class="navigation group">
 			<div id="nav_title">Spicoli's</div>
 			<ul>
-				<a href="/foods"><li class="left wobble-skew">MENU</li></a>
-				<a href="/parties"><li class="right wobble-skew">TABLES</li></a>
+				<%= link_to("/foods", "<li class='left wobble-skew'>MENU</li>") %>
+				<%= link_to("/parties", "<li class='right wobble-skew'>TABLES</li>") %>
 			</ul>	
+			<% if current_user %>
+				<div class="welcome">
+					Welcome <%= @current_user.username %></br>
+					<form action="/sessions" method="post">
+						<input type="hidden" name="_method" value="delete">
+						<button class="linkbutton" type="submit">Log Out</button>
+					</form>
+				</div>
+			<% end %>
 		</div>
 
 	<%= yield %>

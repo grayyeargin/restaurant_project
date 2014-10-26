@@ -9,6 +9,25 @@ body {
 	font-family: 'Open Sans', sans-serif;
 }
 
+.linkbutton {
+  background: none;
+  border: 0;
+  color: #FF8800;
+}
+
+.linkbutton:hover{
+  color: #00D5FF;
+}
+
+.welcome {
+  display: inline-block;
+  position: absolute;
+  top: 30px;
+  right: 20px;
+  text-align: center;
+  color: white;
+}
+
 a {
 	color: #FF8800;
 	text-decoration: none;

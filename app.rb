@@ -4,29 +4,61 @@ Bundler.require
 require_relative "models/food"
 require_relative "models/order"
 require_relative "models/party"
+require_relative "models/user"
+require "./connection"
+enable :sessions
 
-ActiveRecord::Base.establish_connection(
-	adapter: "postgresql",
-	database: "restaurant"
-	)
+# HELPERS #
+require_relative "helpers/link_helper"
+require_relative "helpers/form_helper"
+require_relative "helpers/application_helper"
+helpers ActiveSupport::Inflector
 
-
-# Routes for foods
-
-get '/' do 
-	redirect "/foods"
+get '/' do
+	erb :index
 end
 
-get '/foods' do 
+#USER SIGNUP/LOGIN FORMS
+
+get '/users/signup' do
+	erb :"users/signup"
+end
+
+post '/users' do
+	user = User.new(params[:user])
+	user.password = params[:password_hash]
+	user.save!
+	redirect '/'
+end
+
+post '/sessions' do
+	redirect '/' unless user = User.find_by({username: params[:username]})
+	if user.password == params[:password]
+		session[:current_user] = user.id
+		redirect '/foods'
+	else
+		redirect '/'
+	end
+end
+
+delete '/sessions' do
+	session[:current_user] = nil
+	redirect '/'
+end
+
+# FOODS ROUTES
+
+get '/foods' do
 	@foods = Food.all
 	erb :"foods/index"
 end
 
 get '/foods/new' do
+	authenticate!
 	erb :"foods/new"
 end
 
-post '/foods' do 
+post '/foods' do
 	food = params[:food]
 	food[:name] = food[:name].capitalize
 	food = Food.create(params[:food])
@@ -38,57 +70,60 @@ post '/foods' do
 	end
 end
 
-get '/foods/:id' do 
+get '/foods/:id' do
 	@food = Food.find(params[:id])
 	erb :"foods/show"
-end 
+end
 
 get '/foods/:id/edit' do
+	authenticate!
 	@food = Food.find(params[:id])
 	erb :"foods/edit"
 end
 
-patch '/foods/:id' do 
+patch '/foods/:id' do
 	food = Food.find(params[:id])
 	food.update(params[:food])
 	redirect "/foods/#{food.id}"
 	Food.destroy(params[:id])
 end
 
-delete '/foods/:id' do 
+delete '/foods/:id' do
 	Food.destroy(params[:id])
 	redirect "/foods"
 end
 
-# Routes for parties
+# PARTY ROUTES
 
-get '/parties' do 
+get '/parties' do
 	@parties = Party.all
 	erb :"parties/index"
 end
 
-get '/parties/new' do 
+get '/parties/new' do
+	authenticate!
 	@table_number = params[:table_number]
 	erb :"parties/new"
 end
 
-post '/parties' do 
-	Party.create(params[:party]) 
+post '/parties' do
+	Party.create(params[:party])
 	redirect "/parties"
 end
 
-get '/parties/:id' do 
+get '/parties/:id' do
 	@party = Party.find(params[:id])
 	@foods = Food.all
 	erb :"parties/show"
 end
 
-get '/parties/:id/edit' do 
+get '/parties/:id/edit' do
+	authenticate!
 	@party = Party.find(params[:id])
 	erb :"parties/edit"
 end
 
-patch '/parties/:id' do 
+patch '/parties/:id' do
 	party = Party.find(params[:id])
 	party.update(params[:party])
 	if party.payment_status == true
@@ -100,13 +135,13 @@ patch '/parties/:id' do
 end
 
 delete '/parties/:id' do
-	Party.destroy(params[:id]) 
+	Party.destroy(params[:id])
 	redirect "/parties"
 end
 
 # Create Orders
 
-post '/parties/:id' do  
+post '/parties/:id' do
 	@party = Party.find(params[:id])
 	@foods = Food.all
 	order = Order.create(params[:order])
@@ -121,6 +156,7 @@ end
 
 
 get '/orders/:id/edit' do
+	authenticate!
 	@foods = Food.all
 	@order = Order.find(params[:id])
 	erb :"orders/edit"
@@ -128,13 +164,13 @@ end
 
 
 
-patch '/orders/:id' do 
+patch '/orders/:id' do
 	order = Order.find(params[:id])
 	order.update(params[:order])
 	redirect "/parties/#{order.party.id}"
 end
 
-delete '/orders/:id' do 
+delete '/orders/:id' do
 	order = Order.find(params[:id])
 	Order.destroy(params[:id])
 	redirect "/parties/#{order.party.id}"
@@ -145,12 +181,12 @@ get '/parties/:id/receipt' do
 	erb :"parties/receipt"
 end
 
-patch '/parties/:id/checkout' do 
+
+
+# BINDING PRY
+get	'/console' do
+	binding.pry
 end
-
-
-
-
 
 
 

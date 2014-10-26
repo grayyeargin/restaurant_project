@@ -1,0 +1,14 @@
+<%= form_open(food, method: method) %>
+Food Name: <%= input_tag(resource: "food", name: "name") %></br>
+What course is the item?
+<%= select_tag(resource: "food", name: "course", :values => ["appetizer", "entree", "desert"]) %>
+<%= select_tag_options(:values => ["appetizer", "entree", "desert"]) %>
+<%= select_close %>
+</br>
+Item Price:<%= input_tag(type: "number", resource: "food", name: "price", min: "1", max: "50") %>
+<p>Spicy?</p>
+<%= input_tag(type: "radio", resource: "food", name: "spicy", value: "true") %>Yes</br>
+<%= input_tag(type: "radio", resource: "food", name: "spicy", value: "false") %>
+No</br>
+<%= input_tag(type: "submit", value: "Edit Item") %>
+<%= form_close %>

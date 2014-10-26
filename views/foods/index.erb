@@ -11,7 +11,7 @@
 			<% @foods.each do |food| %>
 				<% if food.course == "appetizer" %>
 				<li class="food_list">
-					<a href="/foods/<%= food.id %>"><%= food.food_capitalize %>  - $<%= food.price %></a><img src="http://www.gocartdv.com/images/ci_logo.png" class="<%= food.is_spicy %>" >
+					<%= link_to(food, food.food_capitalize+"  - $"+food.price.to_s) %><img src="http://www.gocartdv.com/images/ci_logo.png" class="<%= food.is_spicy %>" >
 				</li>
 				<% end %>
 			<% end %>
@@ -23,7 +23,7 @@
 			<% @foods.each do |food| %>
 				<% if food.course == "entree" %>
 				<li class="food_list">
-				<a href="/foods/<%= food.id %>"><%= food.food_capitalize %> - $<%= food.price %></a><img src="http://www.gocartdv.com/images/ci_logo.png" class="<%= food.is_spicy %>" >
+				<%= link_to(food, food.food_capitalize+"  - $"+food.price.to_s) %><img src="http://www.gocartdv.com/images/ci_logo.png" class="<%= food.is_spicy %>" >
 				</li>
 				<% end %>
 			<% end %>
@@ -35,7 +35,7 @@
 			<% @foods.each do |food| %>
 				<% if food.course == "desert" %>
 				<li class="food_list">
-					<a href="/foods/<%= food.id %>"><%= food.food_capitalize %> - $<%= food.price %></a><img src="http://www.gocartdv.com/images/ci_logo.png" class="<%= food.is_spicy %>" >
+					<%= link_to(food, food.food_capitalize+"  - $"+food.price.to_s) %><img src="http://www.gocartdv.com/images/ci_logo.png" class="<%= food.is_spicy %>" >
 				</li>
 				<% end %>
 			<% end %>
