@@ -307,6 +307,13 @@ input[type=submit]:hover, .button:hover {
   animation-iteration-count: 1;
 }
 
+/*FORM STYLE*/
+
 form input, form select {
 	margin-top: 15px;
+}
+
+#user_password_error {
+  color: red;
+  visibility: hidden;
 }

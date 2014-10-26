@@ -1,8 +1,9 @@
 <div class="table_container">
 	<h2>Sign Up for Spicoli's Management</h2>
-	<form action="/users" method="post">
+	<form id="user_signup_data" action="/users" method="post">
 		<input type="text" name="user[username]" placeholder="Username">
-		<input type="password" name="password_hash" placeholder="Password">
+		<input id="user_password" type="password" name="password_hash" placeholder="Password">
 		<input type="submit" value="Sign Up!">
 	</form>
+	<p id="user_password_error">Must have atleast 6 character password</p>
 </div>
