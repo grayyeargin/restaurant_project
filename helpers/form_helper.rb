@@ -55,5 +55,4 @@ module Sinatra
       "</form>"
     end
   end
-  helpers FormHelper
 end

@@ -13,5 +13,4 @@ module Sinatra
     end
 
   end
-  helpers AuthenticationHelper
 end

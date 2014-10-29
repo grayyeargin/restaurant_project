@@ -1,0 +1,14 @@
+-----------------------------
+    Thanks for eating at...  
+...Nick Cage's Place of Food!
+*****************************
+Herman Party
+Sitting at Table 3
+Checkout:2014-10-29 03:04:24 UTC
+order 3: Spaghetti Surprise - $19
+*****************************
+Total: 19
+Tip: 15% = 2.85
+     20% = 3.8
+     25% = 4.75
+-----------------------------

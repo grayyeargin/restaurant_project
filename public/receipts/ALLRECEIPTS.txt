@@ -13,3 +13,45 @@ Tip: 15% = 1.5
      20% = 2.0
      25% = 2.5
 -----------------------------
+-----------------------------
+    Thanks for eating at...  
+...Nick Cage's Place of Food!
+*****************************
+Sawayn Party
+Sitting at Table 7
+Checkout:2014-10-29 03:04:01 UTC
+order 12: Jelly Beans - $20
+*****************************
+Total: 20
+Tip: 15% = 3.0
+     20% = 4.0
+     25% = 5.0
+-----------------------------
+-----------------------------
+    Thanks for eating at...  
+...Nick Cage's Place of Food!
+*****************************
+Herman Party
+Sitting at Table 3
+Checkout:2014-10-29 03:04:24 UTC
+order 3: Spaghetti Surprise - $19
+*****************************
+Total: 19
+Tip: 15% = 2.85
+     20% = 3.8
+     25% = 4.75
+-----------------------------
+-----------------------------
+    Thanks for eating at...  
+...Nick Cage's Place of Food!
+*****************************
+Miller Party
+Sitting at Table 5
+Checkout:2014-10-29 03:04:36 UTC
+order 11: Orange Peel Soup - $7
+*****************************
+Total: 7
+Tip: 15% = 1.05
+     20% = 1.4
+     25% = 1.75
+-----------------------------

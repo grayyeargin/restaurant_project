@@ -26,25 +26,24 @@ module Sinatra
 				super unless constant_defined?(resource)
 				return resource_index_path(resource)
 			end
-				
-			
+
+
 		end
 
 		def new_resource_path(resource)
 			return "/#{str[4..-6]/new}"
-			
+
 		end
 
 		def resource_index_path(resource)
 			"/#{pluralize(resource)}"
-			
+
 		end
 
 		def constant_defined?(resource)
 			resource = singularize(resource).capitalize
 			Module.const_defined?(resource)
-			
+
 		end
 	end
-	helpers LinkHelper
 end

@@ -1,0 +1,14 @@
+-----------------------------
+    Thanks for eating at...  
+...Nick Cage's Place of Food!
+*****************************
+Miller Party
+Sitting at Table 5
+Checkout:2014-10-29 03:04:36 UTC
+order 11: Orange Peel Soup - $7
+*****************************
+Total: 7
+Tip: 15% = 1.05
+     20% = 1.4
+     25% = 1.75
+-----------------------------

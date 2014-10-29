@@ -1,0 +1,14 @@
+-----------------------------
+    Thanks for eating at...  
+...Nick Cage's Place of Food!
+*****************************
+Sawayn Party
+Sitting at Table 7
+Checkout:2014-10-29 03:04:01 UTC
+order 12: Jelly Beans - $20
+*****************************
+Total: 20
+Tip: 15% = 3.0
+     20% = 4.0
+     25% = 5.0
+-----------------------------
