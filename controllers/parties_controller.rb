@@ -17,6 +17,7 @@ class PartiesController < ApplicationController
   end
 
   get '/:id' do
+    authenticate!
     @party = Party.find(params[:id])
     @foods = Food.all
     erb :"parties/show"
@@ -59,6 +60,7 @@ class PartiesController < ApplicationController
 
   # View party's receipt
   get '/:id/receipt' do
+    authenticate!
     @party = Party.find(params[:id])
     erb :"parties/receipt"
   end

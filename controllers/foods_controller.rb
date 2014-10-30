@@ -23,6 +23,7 @@ class FoodsController < ApplicationController
   end
 
   get '/:id' do
+    authenticate!
     @food = Food.find(params[:id])
     erb :"foods/show"
   end
