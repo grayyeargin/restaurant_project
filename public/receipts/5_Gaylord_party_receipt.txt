@@ -1,0 +1,14 @@
+-----------------------------
+    Thanks for eating at...  
+...Nick Cage's Place of Food!
+*****************************
+Gaylord Party
+Sitting at Table 2
+Checkout:2014-10-30 21:45:57 UTC
+order 1: Hottest Soup - $7
+*****************************
+Total: 7
+Tip: 15% = 1.05
+     20% = 1.4
+     25% = 1.75
+-----------------------------
