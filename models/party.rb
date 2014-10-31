@@ -1,5 +1,5 @@
 class Party < ActiveRecord::Base
-	validates :table_number, uniqueness: true 
+	validates :table_number, uniqueness: true
 	has_many(:orders)
 	has_many(:foods, :through => :orders)
 
@@ -31,17 +31,17 @@ class Party < ActiveRecord::Base
 		file << "    Thanks for eating at...  \n"
 		file << "...Nick Cage's Place of Food!\n"
 		file << "*****************************\n"
-		file << self.last_name+" Party\n"
-		file << "Sitting at Table "+self.table_number.to_s+"\n"
-		file << "Checkout:"+self.checkout_time.to_s+"\n"
-		self.orders.each do |order|
-			file << order.to_s+"\n"
+		file << last_name + " Party\n"
+		file << "Sitting at Table " + table_number.to_s + "\n"
+		file << "Checkout:" + checkout_time.to_s + "\n"
+		orders.each do |order|
+			file << order.to_s + "\n"
 		end
 		file << "*****************************\n"
-		file << "Total: "+self.total.to_s+"\n"
-		file << "Tip: 15% = "+self.tip(0.15).to_s+"\n"
-		file << "     20% = "+self.tip(0.20).to_s+"\n"
-		file << "     25% = "+self.tip(0.25).to_s+"\n"
+		file << "Total: " +self.total.to_s+"\n"
+		file << "Tip: 15% = " + self.tip(0.15).to_s + "\n"
+		file << "     20% = " + self.tip(0.20).to_s + "\n"
+		file << "     25% = " + self.tip(0.25).to_s + "\n"
 		file << "-----------------------------\n"
 		file.close
 
@@ -54,6 +54,12 @@ class Party < ActiveRecord::Base
 		# open("/parties/"+self.id.to_s+"/receipt") {|f|
   # 	f.each_line {|line| p line}
 		# }
+	end
+
+	def party_order_cook_status
+		orders.select do |order|
+			order.cook_status == false
+		end
 	end
 
 end

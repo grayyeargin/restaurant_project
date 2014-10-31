@@ -1,0 +1,13 @@
+<div class="container">
+	<h1>Chef... Get on these</h1>
+	<% @parties.each do |party|  %>
+		<% if party.payment_status == false && party.orders.length > 1 %>
+			<h3>Table: <%= party.table_number %> | The <%= party.last_name %> Party</h3>
+			<% party.party_order_cook_status.each do |order| %>
+				<ul>
+					<li><%= order.food.name %></li>
+				</ul>
+			<% end %>
+		<% end %>
+	<% end %>
+</div>

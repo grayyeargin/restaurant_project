@@ -1,5 +1,10 @@
 class OrdersController < ApplicationController
 
+  get '/' do
+    @parties = Party.all
+    erb :'orders/index'
+  end
+
   get '/:id/edit' do
     authenticate!
     @foods = Food.all
