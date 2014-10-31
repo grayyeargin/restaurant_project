@@ -1,13 +1,19 @@
 #nav_title {
 	font-size: 45px;
+	display: block;
 	position: relative;
-	margin: 0;
-	left: 0;
+	float: none;
+	text-align: center;
+	margin: 0 auto;
+}
+
+.navigation ul {
+	float: none;
 }
 
 .navigation li {
 	display: inline-block;
-	padding: 20px;
+	padding: 17px;
 	font-size: 20px;
 }
 

@@ -15,7 +15,11 @@ class OrdersController < ApplicationController
   patch '/:id' do
     order = Order.find(params[:id])
     order.update(params[:order])
-    redirect "/parties/#{order.party.id}"
+    if order.cook_status
+      redirect 'orders'
+    else
+      redirect "/parties/#{order.party.id}"
+    end
   end
 
   delete '/:id' do

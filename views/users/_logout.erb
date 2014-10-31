@@ -1,7 +1,7 @@
 <div class="welcome">
-	Welcome <%= @current_user.username %></br>
+	<span style="font-size: 8px;"></span>Hi, <%= @current_user.username %></span></br>
 	<form action="/sessions" method="post">
 		<input type="hidden" name="_method" value="delete">
-		<input type="submit" value="Logout">
+		<input class="order_button" style="font-size: 8px;" type="submit" value="Logout">
 	</form>
 </div>

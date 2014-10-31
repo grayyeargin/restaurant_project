@@ -20,6 +20,18 @@ $(document).ready(function(){
 		}
 	})
 
+	$('.order_button').hover( function() {
+			$(this).animate({
+				'color': '#FF0000',
+				fontSize: "16px"
+			}, 1000);
+	}, function() {
+		$(this).animate({
+			'color': 'white',
+			fontSize: "12px"
+		}, 400);
+	})
+
 });
 
 

@@ -8,7 +8,7 @@ class Food < ActiveRecord::Base
 			"spicyness"
 		else
 			"nospicy"
-		end	
+		end
 	end
 
 	def food_capitalize

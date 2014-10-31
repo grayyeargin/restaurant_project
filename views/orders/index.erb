@@ -1,13 +1,22 @@
-<div class="container">
-	<h1>Chef... Get on these</h1>
-	<% @parties.each do |party|  %>
-		<% if party.payment_status == false && party.orders.length > 1 %>
-			<h3>Table: <%= party.table_number %> | The <%= party.last_name %> Party</h3>
-			<% party.party_order_cook_status.each do |order| %>
-				<ul>
-					<li><%= order.food.name %></li>
-				</ul>
+<div class="table_container">
+	<h1 class="first_heading text_align menu_heading" style="color: white;">Current Outstanding Orders</h1>
+		<% @parties.each do |party|  %>
+
+<!-- For each party with outanding orders put orders -->
+			<% if party.payment_status == false && party.party_order_cook_status.length > 0 %>
+				<div class="each_table_orders text_align">
+					<h4>Table: <%= party.table_number %> | The <%= party.last_name %> Party</h4>
+					<% party.party_order_cook_status.each do |order| %>
+						<ul>
+							<li><form action="/orders/<%= order.id %>" method="post">
+										<input type="hidden" name="_method" value="patch">
+										<input type="hidden" name="order[cook_status]" value="true">
+										<input class="order_button" type="submit" value="<%= order.food.name %>">
+								</form></li>
+						</ul>
+					<% end %>
+				</div>
 			<% end %>
+
 		<% end %>
-	<% end %>
 </div>

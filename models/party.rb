@@ -64,4 +64,12 @@ class Party < ActiveRecord::Base
 
 end
 
+class TableOpenValidator < ActiveModel::Validator
+	def validate(record)
+		if Party.find_by({table_number: record.table_number.to_i}) != nil
+			record.errors[:base] << "Table already taken... so don't sit there"
+		end
+	end
+end
+
 

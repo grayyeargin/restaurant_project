@@ -12,8 +12,13 @@ class PartiesController < ApplicationController
   end
 
   post '/' do
-    Party.create(params[:party])
-    redirect "/parties"
+    party = Party.create(params[:party])
+    if party.valid?
+      redirect "/parties"
+    else
+      @errors = party.errors.full_messages
+      erb :"parties/new"
+    end
   end
 
   get '/:id' do
@@ -56,13 +61,6 @@ class PartiesController < ApplicationController
       @errors = order.errors.full_messages
       erb :"parties/show"
     end
-  end
-
-  # View party's receipt
-  get '/:id/receipt' do
-    authenticate!
-    @party = Party.find(params[:id])
-    erb :"parties/receipt"
   end
 
 end
