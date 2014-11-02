@@ -340,7 +340,7 @@ input.order_button:hover {
 }
 
 .each_table_orders {
-  width: 300px;
+  width: 290px;
   min-height: 300px;
   padding: 5px;
   background-color: #3B3B3B;
@@ -348,7 +348,7 @@ input.order_button:hover {
   margin: 10px;
   color: white;
   border-radius: 15px;
-
+  float: left;
 }
 
 

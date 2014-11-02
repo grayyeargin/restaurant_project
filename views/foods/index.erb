@@ -29,11 +29,11 @@
 			<% end %>
 		</ul>
 
-	<!-- Lists each Desert -->
-		<h4 class="menu_heading">Desert</h4>
+	<!-- Lists each Dessert -->
+		<h4 class="menu_heading">Dessert</h4>
 		<ul>
 			<% @foods.each do |food| %>
-				<% if food.course == "desert" %>
+				<% if food.course == "dessert" %>
 				<li class="food_list">
 					<%= link_to(food, food.food_capitalize+"  - $"+food.price.to_s) %><img src="http://www.gocartdv.com/images/ci_logo.png" class="<%= food.is_spicy %>" >
 				</li>
