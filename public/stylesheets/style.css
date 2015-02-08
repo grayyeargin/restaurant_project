@@ -351,6 +351,13 @@ input.order_button:hover {
   float: left;
 }
 
+@media (max-width: 1200px) {
+  .each_table_orders {
+    min-height: 250px;
+    width: 200px;
+  }
+}
+
 
 
 
