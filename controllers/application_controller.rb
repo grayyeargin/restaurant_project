@@ -4,10 +4,12 @@ class ApplicationController < Sinatra::Base
   helpers Sinatra::LinkHelper
   helpers ActiveSupport::Inflector
 
-  ActiveRecord::Base.establish_connection(
-  adapter: 'postgresql',
-  database: 'restaurant'
-  )
+  before do
+    @connection = ActiveRecord::Base.establish_connection({adapter: 'postgresql',database: 'restaurant'})
+  end
+  after do
+    @connection.disconnect!
+  end
 
   set :views, File.expand_path('../../views', __FILE__)
   set :stylesheets_folder, File.expand_path('../../public/stylesheets', __FILE__)
